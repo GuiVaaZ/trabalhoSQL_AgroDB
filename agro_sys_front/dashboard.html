@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroGestão - Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Menu Lateral -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2>AgroGestão</h2>
+                <button class="toggle-sidebar" id="toggleSidebar">☰</button>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#" class="nav-link active" data-section="dashboard">Dashboard</a></li>
+                    <li><a href="#" class="nav-link" data-section="produtores">Produtores</a></li>
+                    <li><a href="#" class="nav-link" data-section="produtos">Produtos</a></li>
+                    <li><a href="#" class="nav-link" data-section="clientes">Clientes</a></li>
+                    <li><a href="#" class="nav-link" data-section="pedidos">Pedidos</a></li>
+                    <li><a href="#" class="nav-link" data-section="pagamentos">Pagamentos</a></li>
+                    <li><a href="#" class="nav-link" data-section="relatorios">Relatórios</a></li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <button id="logoutBtn" class="btn-logout">Sair</button>
+            </div>
+        </aside>
+        
+        <!-- Overlay para mobile -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+        
+        <!-- Conteúdo Principal -->
+        <main class="main-content">
+            <header class="content-header">
+                <h1 id="pageTitle">Dashboard</h1>
+                <div class="user-info">
+                    <span id="userWelcome">Bem-vindo, Admin</span>
+                </div>
+            </header>
+            
+            <div class="content-body">
+                <!-- Dashboard -->
+                <section id="dashboard" class="content-section active">
+                    <div class="cards-container">
+                        <div class="card">
+                            <div class="card-icon">👨‍🌾</div>
+                            <div class="card-content">
+                                <h3>Produtores</h3>
+                                <p class="card-value" id="produtoresCount">12</p>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card-icon">🥦</div>
+                            <div class="card-content">
+                                <h3>Produtos</h3>
+                                <p class="card-value" id="produtosCount">45</p>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card-icon">👥</div>
+                            <div class="card-content">
+                                <h3>Clientes</h3>
+                                <p class="card-value" id="clientesCount">78</p>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card-icon">📦</div>
+                            <div class="card-content">
+                                <h3>Pedidos</h3>
+                                <p class="card-value" id="pedidosCount">23</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-charts">
+                        <div class="chart-container">
+                            <h3>Vendas por Mês</h3>
+                            <div class="chart-placeholder">
+                                <p>Gráfico de vendas seria exibido aqui</p>
+                            </div>
+                        </div>
+                        
+                        <div class="chart-container">
+                            <h3>Produtos Mais Vendidos</h3>
+                            <div class="chart-placeholder">
+                                <p>Gráfico de produtos seria exibido aqui</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Produtores -->
+                <section id="produtores" class="content-section">
+                    <div class="section-header">
+                        <h2>Gerenciar Produtores</h2>
+                        <button class="btn-primary" id="addProdutor">Cadastrar Produtor</button>
+                    </div>
+                    
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Propriedade</th>
+                                    <th>Certificações</th>
+                                    <th>Contato</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="produtoresTable">
+                                <!-- Dados serão preenchidos via JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                
+                <!-- Produtos -->
+                <section id="produtos" class="content-section">
+                    <div class="section-header">
+                        <h2>Gerenciar Produtos</h2>
+                        <button class="btn-primary" id="addProduto">Cadastrar Produto</button>
+                    </div>
+                    
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Categoria</th>
+                                    <th>Produtor</th>
+                                    <th>Preço</th>
+                                    <th>Estoque</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="produtosTable">
+                                <!-- Dados serão preenchidos via JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                
+                <!-- Clientes -->
+                <section id="clientes" class="content-section">
+                    <div class="section-header">
+                        <h2>Gerenciar Clientes</h2>
+                        <button class="btn-primary" id="addCliente">Cadastrar Cliente</button>
+                    </div>
+                    
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Email</th>
+                                    <th>Telefone</th>
+                                    <th>Endereço</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="clientesTable">
+                                <!-- Dados serão preenchidos via JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                
+                <!-- Pedidos -->
+                <section id="pedidos" class="content-section">
+                    <div class="section-header">
+                        <h2>Gerenciar Pedidos</h2>
+                        <button class="btn-primary" id="addPedido">Novo Pedido</button>
+                    </div>
+                    
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Nº Pedido</th>
+                                    <th>Cliente</th>
+                                    <th>Data</th>
+                                    <th>Valor</th>
+                                    <th>Status</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="pedidosTable">
+                                <!-- Dados serão preenchidos via JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                
+                <!-- Pagamentos -->
+                <section id="pagamentos" class="content-section">
+                    <div class="section-header">
+                        <h2>Gerenciar Pagamentos</h2>
+                        <button class="btn-primary" id="addPagamento">Registrar Pagamento</button>
+                    </div>
+                    
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Nº Pedido</th>
+                                    <th>Cliente</th>
+                                    <th>Valor</th>
+                                    <th>Data Venc.</th>
+                                    <th>Status</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="pagamentosTable">
+                                <!-- Dados serão preenchidos via JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                
+                <!-- Relatórios -->
+                <section id="relatorios" class="content-section">
+                    <div class="section-header">
+                        <h2>Relatórios</h2>
+                        <div class="report-actions">
+                            <button class="btn-secondary" id="relVendas">Relatório de Vendas</button>
+                            <button class="btn-secondary" id="relEstoque">Relatório de Estoque</button>
+                            <button class="btn-secondary" id="relEntregas">Relatório de Entregas</button>
+                        </div>
+                    </div>
+                    
+                    <div class="report-filters">
+                        <div class="filter-group">
+                            <label for="dataInicio">Data Início:</label>
+                            <input type="date" id="dataInicio">
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label for="dataFim">Data Fim:</label>
+                            <input type="date" id="dataFim">
+                        </div>
+                        
+                        <button class="btn-primary" id="gerarRelatorio">Gerar Relatório</button>
+                    </div>
+                    
+                    <div class="report-container">
+                        <div class="report-placeholder">
+                            <p>Os relatórios serão exibidos aqui após aplicar os filtros</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    
+    <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
